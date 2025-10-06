@@ -1,0 +1,22 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "contactMe": "Contact Me",
+    "downloadCV": "Download CV"
+  },
+  "contact": {
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "github": "GitHub",
+    "telegram": "Telegram"
+  }
+}

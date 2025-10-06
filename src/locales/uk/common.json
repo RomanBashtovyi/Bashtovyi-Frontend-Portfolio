@@ -1,0 +1,22 @@
+{
+  "navigation": {
+    "home": "Головна",
+    "about": "Про мене",
+    "projects": "Проекти",
+    "skills": "Навички",
+    "contact": "Контакти"
+  },
+  "buttons": {
+    "viewProject": "Подивитися проект",
+    "viewCode": "Подивитися код",
+    "contactMe": "Зв'язатися зі мною",
+    "downloadCV": "Завантажити резюме"
+  },
+  "contact": {
+    "phone": "Телефон",
+    "email": "Електронна пошта",
+    "location": "Локація",
+    "github": "GitHub",
+    "telegram": "Telegram"
+  }
+}

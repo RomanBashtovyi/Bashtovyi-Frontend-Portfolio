@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Roman Bashtovyi",
+    "title": "Frontend Developer",
+    "description": "Creating modern and interactive web applications using React, TypeScript and Next.js",
+    "available": "Available for new projects",
+    "cta": "View Projects",
+    "connect": "Let's Connect"
+  },
+  "about": {
+    "title": "A Glimpse Into My World",
+    "eyebrow": "About Me",
+    "description": "Learn more about who I am, what I do, and what inspires me.",
+    "achievements": {
+      "title": "My Achievements",
+      "description": "Professional certificates and education"
+    },
+    "toolbox": {
+      "title": "My Toolbox",
+      "description": "Technologies and tools I use to craft exceptional digital experiences"
+    },
+    "hobbies": {
+      "title": "Beyond the Code",
+      "description": "Explore my interests and hobbies beyond the digital realm"
+    }
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "eyebrow": "Real-world Results",
+    "description": "See how I transformed concepts into engaging digital experiences."
+  },
+  "skills": {
+    "title": "My Skills",
+    "eyebrow": "Technical Competencies",
+    "description": "Technologies and tools I master"
+  },
+  "contact": {
+    "title": "Let's Collaborate",
+    "eyebrow": "Contact",
+    "description": "Ready to discuss your project or collaboration opportunities."
+  }
+}

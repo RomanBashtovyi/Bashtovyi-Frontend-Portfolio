@@ -12,11 +12,12 @@ import ChromeIcon from '@/assets/icons/chrome.svg'
 import GitHubIcon from '@/assets/icons/github.svg'
 import { TechIcon } from '@/components/TechIcon'
 import mapImage from '@/assets/images/map.png'
-import smileEmoji from '@/assets/images/memoji-smile.png'
+import smileEmoji from '@/assets/images/avatar.png'
 import { CardHeader } from '@/components/CardHeader'
 import { ToolboxItems } from '@/components/ToolboxItems'
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 const toolboxItems = [
   {
@@ -92,20 +93,24 @@ const hobbies = [
 
 export const AboutSection = () => {
   const constraintRef = useRef(null)
+  const { t } = useLanguage()
+
   return (
-    <div className="py-20 lg:py-28">
+    <section id="about" className="py-20 lg:py-28">
       <div className="container">
         <SectionHeader
-          title="A Glimpse Into My World"
-          eyebrow="About Me"
-          description="Learn more about who I am, what I do, and what inspires me."
+          title={t('about.title')}
+          eyebrow={t('about.eyebrow')}
+          description={t('about.description')}
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
-                title="My Reads"
-                description="Explore the books shaping my perspectives."
+                title={t('about.achievements.title')}
+                description={t(
+                  'about.achievements.description'
+                )}
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
                 <Image src={bookImage} alt="Book Cover" />
@@ -113,8 +118,8 @@ export const AboutSection = () => {
             </Card>
             <Card className="h-[320px] md:col-span-3 lg:col-span-2">
               <CardHeader
-                title="My Toolbox"
-                description="Explore my technologies and tools I use to craft exceptional digital experiences."
+                title={t('about.toolbox.title')}
+                description={t('about.toolbox.description')}
               />
               <ToolboxItems
                 items={toolboxItems}
@@ -130,8 +135,8 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader
-                title="Beyond the Code"
-                description="Explore my interests and hobbies beyond the digital realm."
+                title={t('about.hobbies.title')}
+                description={t('about.hobbies.description')}
                 className="px-6 py-6"
               />
               <div
@@ -176,6 +181,6 @@ export const AboutSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

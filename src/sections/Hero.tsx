@@ -1,14 +1,21 @@
-import memojiImage from '@/assets/images/avatar.png'
+'use client'
+
+import memojiImage from '@/assets/images/avatar-laptop.png'
 import Image from 'next/image'
 import ArrowDown from '@/assets/icons/arrow-down.svg'
 import grainImage from '@/assets/images/grain.jpg'
 import { HeroOrbit } from '@/components/HeroOrbit'
 import StarIcon from '@/assets/icons/star.svg'
 import SparkleIcon from '@/assets/icons/sparkle.svg'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export const HeroSection = () => {
+  const { t } = useLanguage()
   return (
-    <div className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip">
+    <section
+      id="hero"
+      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
+    >
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -28,7 +35,7 @@ export const HeroSection = () => {
         <div className="size-[820px] hero-ring"></div>
         <div className="size-[1020px] hero-ring"></div>
         <div className="size-[1220px] hero-ring"></div>
-        {/* Mobile-first orbits (radius < 350px) - visible on phone screens */}
+
         <HeroOrbit
           size={150}
           rotation={30}
@@ -204,45 +211,47 @@ export const HeroSection = () => {
         <div className="flex flex-col items-center">
           <Image
             src={memojiImage}
-            className="size-[100px]"
+            className="hero-avatar"
             alt="Person peeking from behind computer"
+            width={128}
+            height={192}
+            priority
           />
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
             <div className="bg-green-500 size-2.5 rounded-full relative">
               <div className="absolute bg-green-500 inset-0 rounded-full animate-ping-large"></div>
             </div>
             <div className="text-sm font-medium">
-              Available for new projects
+              {t('hero.available')}
             </div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
-            Hello, I&apos;m{' '}
+            {t('hero.greeting')}{' '}
             <span className="text-white">
-              Roman Bashtovyi
+              {t('hero.name')}
             </span>
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I&apos;m a frontend developer with a passion for
-            creating beautiful and functional websites.
+            {t('hero.description')}
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
             <span className="font-semibold">
-              Explore My Work
+              {t('hero.cta')}
             </span>
             <ArrowDown className="size-4" />
           </button>
           <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
             <span>👋</span>
             <span className="font-semibold">
-              Let&apos;s Connect
+              {t('hero.connect')}
             </span>
           </button>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
