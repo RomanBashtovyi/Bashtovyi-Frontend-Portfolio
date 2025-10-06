@@ -94,11 +94,10 @@ export const ProjectsSection = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="btn-primary w-full md:w-auto mt-8 justify-center"
                     >
-                      <button className="bg-white text-gray-950 w-full h-12 rounded-xl font-semibold inline-flex items-center justify-center gap-2 mt-8 md:w-auto px-6">
-                        <span>Visit Live Site</span>
-                        <ArrowUpRightIcon className="size-4" />
-                      </button>
+                      <span>Visit Live Site</span>
+                      <ArrowUpRightIcon className="size-4" />
                     </a>
                   </div>
                   <div className="relative">

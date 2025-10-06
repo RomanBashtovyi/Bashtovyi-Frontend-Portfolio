@@ -11,6 +11,7 @@ type Language = 'uk' | 'en'
 
 interface LanguageContextType {
   language: Language
+  locale: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
 }
@@ -103,7 +104,7 @@ export const LanguageProvider: React.FC<
 
   return (
     <LanguageContext.Provider
-      value={{ language, setLanguage, t }}
+      value={{ language, locale: language, setLanguage, t }}
     >
       {children}
     </LanguageContext.Provider>

@@ -64,6 +64,12 @@ export const Header = () => {
           {t('navigation.home')}
         </button>
         <button
+          onClick={() => scrollToSection('experience')}
+          className="nav-item flex items-center"
+        >
+          {t('navigation.experience')}
+        </button>
+        <button
           onClick={() => scrollToSection('projects')}
           className="nav-item flex items-center"
         >
@@ -154,6 +160,14 @@ export const Header = () => {
                 className="nav-item flex items-center justify-center w-full"
               >
                 {t('navigation.home')}
+              </button>
+              <button
+                onClick={() =>
+                  scrollToSection('experience')
+                }
+                className="nav-item flex items-center justify-center w-full"
+              >
+                {t('navigation.experience')}
               </button>
               <button
                 onClick={() => scrollToSection('projects')}

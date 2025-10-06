@@ -35,6 +35,11 @@
     "eyebrow": "Technical Competencies",
     "description": "Technologies and tools I master"
   },
+  "experience": {
+    "title": "Professional Journey",
+    "eyebrow": "Work Experience",
+    "description": "My career path and the projects that shaped my expertise as a frontend developer."
+  },
   "contact": {
     "title": "Let's Collaborate",
     "eyebrow": "Contact",

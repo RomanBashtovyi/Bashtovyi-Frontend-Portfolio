@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: 'Портфоліо Баштового Романа | Frontend Developer',
   description:
     'Сучасне портфоліо фронтенд-розробника Баштового Романа. React, TypeScript, Next.js',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

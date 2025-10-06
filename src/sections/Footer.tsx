@@ -33,7 +33,7 @@ export const Footer = () => {
             {footerLinks.map((link) => (
               <a
                 href={link.href}
-                key={link.href}
+                key={link.title}
                 className="inline-flex items-center gap-1.5"
               >
                 <span className="font-semibold">
