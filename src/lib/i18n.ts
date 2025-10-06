@@ -4,11 +4,14 @@ const locales = ['uk', 'en']
 
 export default getRequestConfig(async ({ locale }) => {
   // Використовуємо українську за замовчуванням якщо локаль не підтримується
-  const validLocale = locales.includes(locale as any)
-    ? locale
+  const validLocale: string = locales.includes(
+    locale as any
+  )
+    ? (locale as string)
     : 'uk'
 
   return {
+    locale: validLocale,
     messages: {
       common: (
         await import(
