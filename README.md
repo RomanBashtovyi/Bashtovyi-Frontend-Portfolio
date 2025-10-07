@@ -1,10 +1,27 @@
 <div align="center">
 
-# Bashtovyi Frontend Portfolio
+<img src="public/next.svg" alt="logo" width="64" />
 
-Personal portfolio and resume website built with Next.js, TypeScript and Tailwind CSS.
+<b>Bashtovyi — Frontend Portfolio</b>
+
+Modern resume website built with Next.js, TypeScript and Tailwind CSS.
+
+<br/>
+
+<a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-14-000?logo=nextdotjs" alt="Next.js" /></a>
+<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind%20CSS-3-38B2AC?logo=tailwindcss&logoColor=white" alt="Tailwind" /></a>
+<a href="https://vercel.com/"><img src="https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel" alt="Vercel" /></a>
 
 </div>
+
+---
+
+### Demo
+
+- Live: `https://bashtovyi-frontend-portfolio.vercel.app/`
+
+If the link changes, update this section and the project metadata.
 
 ## Features
 
@@ -18,11 +35,12 @@ Personal portfolio and resume website built with Next.js, TypeScript and Tailwin
 
 ## Tech Stack
 
-- Next.js 14, React 18, TypeScript
-- Tailwind CSS, PostCSS, Autoprefixer
-- SVG icons via SVGR
-- Framer Motion (animations)
-- yet-another-react-lightbox (project previews)
+- Framework: Next.js 14 (App Router, Metadata API)
+- Language: TypeScript 5
+- UI: Tailwind CSS, custom components, responsive design
+- Media: SVGR for inline SVG, Next Image for raster
+- Animations: Framer Motion
+- Lightbox: yet-another-react-lightbox
 
 ## Getting Started
 
@@ -57,12 +75,12 @@ src/
   sections/          # Page sections (Hero, Projects, ...)
 ```
 
-## Styling
+## Styling & Design System
 
 - Component-level styling is done with Tailwind utility classes.
 - Reusable button styles live in `src/app/globals.css` as `.btn`, `.btn-primary`, `.btn-secondary`.
 
-## Internationalization
+## Internationalization (i18n)
 
 - Simple i18n powered by a language context and JSON dictionaries in `src/locales/en` and `src/locales/uk`.
 - The `LanguageSwitcher` component toggles the current language.
@@ -81,6 +99,12 @@ The project can be deployed to any Node-compatible host. Recommended: Vercel.
 npm run build
 npm run start
 ```
+
+## Roadmap
+
+- Contact form with server actions
+- Content layer/CMS for projects
+- Theme toggle (light/dark)
 
 ## Contributing
 
