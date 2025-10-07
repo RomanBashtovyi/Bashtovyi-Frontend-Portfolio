@@ -19,7 +19,7 @@ Modern resume website built with Next.js, TypeScript and Tailwind CSS.
 
 ### Demo
 
-- Live: `https://bashtovyi-frontend-portfolio.vercel.app/`
+- Live: `https://bashtovyi-dev.vercel.app/`
 
 If the link changes, update this section and the project metadata.
 
