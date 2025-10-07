@@ -2,7 +2,7 @@
 import { SectionHeader } from '@/components/SectionHeader'
 import { Card } from '@/components/Card'
 import StarIcon from '@/assets/icons/star.svg'
-import bookImage from '@/assets/images/book-cover.png'
+import ArrowDownIcon from '@/assets/icons/arrow-down.svg'
 import Image from 'next/image'
 import JavaScriptIcon from '@/assets/icons/square-js.svg'
 import HTML5Icon from '@/assets/icons/html5.svg'
@@ -15,8 +15,12 @@ import mapImage from '@/assets/images/map.png'
 import smileEmoji from '@/assets/images/avatar.png'
 import { CardHeader } from '@/components/CardHeader'
 import { ToolboxItems } from '@/components/ToolboxItems'
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+} from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 const toolboxItems = [
@@ -48,52 +52,195 @@ const toolboxItems = [
 
 const hobbies = [
   {
-    title: 'Painting',
-    emoji: '🎨',
-    left: '5%',
-    top: '5%',
-  },
-  {
-    title: 'Photography',
-    emoji: '📸',
-    left: '50%',
-    top: '5%',
-  },
-  {
-    title: 'Hiking',
-    emoji: '🥾',
-    left: '35%',
-    top: '40%',
-  },
-  {
-    title: 'Gaming',
+    titleUk: 'Ігри',
+    titleEn: 'Gaming',
     emoji: '🎮',
     left: '10%',
-    top: '35%',
+    top: '20%',
   },
   {
-    title: 'Music',
-    emoji: '🎵',
-    left: '70%',
-    top: '45%',
-  },
-  {
-    title: 'Fitness',
+    titleUk: 'Пауерліфтинг',
+    titleEn: 'Powerlifting',
     emoji: '🏋️',
+    left: '65%',
+    top: '18%',
+  },
+  {
+    titleUk: 'Машини',
+    titleEn: 'Cars',
+    emoji: '🚗',
+    left: '35%',
+    top: '8%',
+  },
+  {
+    titleUk: 'Фотографія',
+    titleEn: 'Photography',
+    emoji: '📸',
     left: '5%',
     top: '65%',
   },
   {
-    title: 'Reading',
-    emoji: '📚',
-    left: '45%',
+    titleUk: 'Музика',
+    titleEn: 'Music',
+    emoji: '🎵',
+    left: '70%',
+    top: '55%',
+  },
+  {
+    titleUk: 'Рибалка',
+    titleEn: 'Fishing',
+    emoji: '🎣',
+    left: '40%',
     top: '70%',
+  },
+  {
+    titleUk: 'Велосипед',
+    titleEn: 'Cycling',
+    emoji: '🚴',
+    left: '25%',
+    top: '40%',
+  },
+]
+
+const certificates = [
+  {
+    title:
+      'React – Full Course: React, Redux & Redux Toolkit',
+    url: 'https://www.udemy.com/certificate/UC-1de09707-57d8-449b-8dc5-4c07f4aaea10/',
+  },
+  {
+    title:
+      'Redux for State Management in React Applications',
+    url: 'https://www.udemy.com/certificate/UC-eea47f18-1659-4d18-8239-3d7eed9b46ee/',
+  },
+  {
+    title:
+      'TypeScript from Scratch – Full Course and Design Patterns',
+    url: 'https://www.udemy.com/certificate/UC-86063e19-725c-46ed-a343-cee0a68d470f/',
+  },
+]
+
+const education = [
+  {
+    titleUk: 'Кібербезпека',
+    titleEn: 'Cybersecurity',
+    schoolUk: 'Військова кафедра | ВІТІ ім. Героїв Крут',
+    schoolEn:
+      'Military Department | VITI (Heroes of Kruty Institute)',
+    period: '2024-2026',
+  },
+  {
+    titleUk: "Комп'ютерні науки",
+    titleEn: 'Computer Science (Master)',
+    schoolUk: 'Магістр | УДУ ім. М.П. Драгоманова',
+    schoolEn: 'Master | Dragomanov University',
+    period: '2023-2025',
+  },
+  {
+    titleUk: 'Інженерія програмного забезпечення',
+    titleEn: 'Software Engineering (Bachelor)',
+    schoolUk: 'Бакалавр | УДУ ім. М.П. Драгоманова',
+    schoolEn: 'Bachelor | Dragomanov University',
+    period: '2019-2023',
   },
 ]
 
 export const AboutSection = () => {
   const constraintRef = useRef(null)
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const [showScrollHint, setShowScrollHint] = useState(true)
+
+  const FloatingBadge = ({
+    label,
+    emoji,
+    leftPercent,
+    topPercent,
+  }: {
+    label: string
+    emoji: string
+    leftPercent: number
+    topPercent: number
+  }) => {
+    const badgeRef = useRef<HTMLDivElement | null>(null)
+    const x = useMotionValue(0)
+    const y = useMotionValue(0)
+    const velocity = useRef({
+      vx: 40 + Math.random() * 40,
+      vy: 40 + Math.random() * 40,
+    })
+    const paused = useRef(false)
+
+    useEffect(() => {
+      const container =
+        constraintRef.current as HTMLDivElement | null
+      const el = badgeRef.current
+      if (!container || !el) return
+      const { width, height } =
+        container.getBoundingClientRect()
+      const initX =
+        (leftPercent / 100) * (width - el.offsetWidth)
+      const initY =
+        (topPercent / 100) * (height - el.offsetHeight)
+      x.set(Math.max(0, initX))
+      y.set(Math.max(0, initY))
+    }, [leftPercent, topPercent, x, y])
+
+    useAnimationFrame((t, delta) => {
+      if (paused.current) return
+      const container =
+        constraintRef.current as HTMLDivElement | null
+      const el = badgeRef.current
+      if (!container || !el) return
+      const { width, height } =
+        container.getBoundingClientRect()
+      const maxX = width - el.offsetWidth
+      const maxY = height - el.offsetHeight
+
+      const dt = Math.min(delta, 32) / 1000
+      let nextX = x.get() + velocity.current.vx * dt
+      let nextY = y.get() + velocity.current.vy * dt
+
+      if (nextX <= 0 || nextX >= maxX) {
+        velocity.current.vx *= -1
+        nextX = Math.max(0, Math.min(maxX, nextX))
+      }
+      if (nextY <= 0 || nextY >= maxY) {
+        velocity.current.vy *= -1
+        nextY = Math.max(0, Math.min(maxY, nextY))
+      }
+
+      x.set(nextX)
+      y.set(nextY)
+    })
+
+    return (
+      <motion.div
+        ref={badgeRef}
+        className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+        style={{ x, y }}
+        drag
+        dragConstraints={constraintRef}
+        dragMomentum={false}
+        onDragStart={() => {
+          paused.current = true
+        }}
+        onDragEnd={() => {
+          const speed = 10 + Math.random() * 30
+          const angle = Math.random() * Math.PI * 2
+          velocity.current = {
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+          }
+          paused.current = false
+        }}
+      >
+        <span className="text-gray-950 font-medium">
+          {label}
+        </span>
+        <span>{emoji}</span>
+      </motion.div>
+    )
+  }
 
   return (
     <section id="about" className="py-20 lg:py-28">
@@ -105,64 +252,124 @@ export const AboutSection = () => {
         />
         <div className="mt-20 flex flex-col gap-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-              <CardHeader
-                title={t('about.achievements.title')}
-                description={t(
-                  'about.achievements.description'
-                )}
-              />
-              <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={bookImage} alt="Book Cover" />
+            <div className="md:col-span-2 lg:col-span-1 p-5 rounded-3xl bg-white/5 border border-white/10 h-[320px] flex flex-col">
+              <div className="flex items-center gap-2 text-xs text-white/80">
+                <StarIcon className="w-4 h-4 text-emerald-300" />
+                <span>
+                  {t(
+                    'about.achievements.courseCertificates'
+                  )}
+                </span>
               </div>
-            </Card>
-            <Card className="h-[320px] md:col-span-3 lg:col-span-2">
-              <CardHeader
-                title={t('about.toolbox.title')}
-                description={t('about.toolbox.description')}
-              />
-              <ToolboxItems
-                items={toolboxItems}
-                itemsWrapperClassName="animate-move-left [animation-duration:30s]"
-              />
-              <ToolboxItems
-                items={toolboxItems}
-                className="mt-6 "
-                itemsWrapperClassName=" animate-move-right [animation-duration:20s]"
-              />
-            </Card>
+              <ul className="mt-3 flex flex-1 flex-col justify-between">
+                {certificates.map((c) => (
+                  <li key={c.url}>
+                    <a
+                      href={c.url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="group flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                    >
+                      <StarIcon className="w-5 h-5 text-emerald-300 mt-0.5" />
+                      <p className="text-white text-sm font-medium leading-snug group-hover:underline">
+                        {c.title}
+                      </p>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-6 rounded-3xl bg-white/5 border border-white/10 md:col-span-3 lg:col-span-2 h-[320px] flex flex-col">
+              <div className="flex items-center gap-2 text-xs text-white/80">
+                <StarIcon className="w-4 h-4 text-emerald-300" />
+                <span>{t('about.education.title')}</span>
+              </div>
+              <p className="mt-1 text-white/60 text-sm">
+                {t('about.education.description')}
+              </p>
+              <div
+                className="mt-3 relative flex-1 overflow-auto pr-2"
+                onScroll={(e) => {
+                  const atTop =
+                    e.currentTarget.scrollTop <= 2
+                  if (showScrollHint !== atTop) {
+                    setShowScrollHint(atTop)
+                  }
+                }}
+              >
+                <div className="absolute left-4 top-4 bottom-4 w-0.5 bg-white/10" />
+                {education.map((ed, idx) => (
+                  <div
+                    key={idx}
+                    className="relative pl-14 py-3"
+                  >
+                    <div className="absolute left-3 top-4 w-3 h-3 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400" />
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-4">
+                      <div className="min-w-0">
+                        <h4 className="text-white font-semibold leading-tight truncate sm:whitespace-normal">
+                          {locale === 'uk'
+                            ? ed.titleUk
+                            : ed.titleEn}
+                        </h4>
+                        <p className="text-white/70 text-sm">
+                          {locale === 'uk'
+                            ? ed.schoolUk
+                            : ed.schoolEn}
+                        </p>
+                      </div>
+                      <span className="text-white/60 text-sm sm:text-base whitespace-nowrap pt-1 sm:pt-0">
+                        {ed.period}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+                <motion.div
+                  className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 sm:left-auto sm:right-3 sm:bottom-12 sm:translate-x-0 lg:hidden"
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{
+                    opacity: showScrollHint ? 1 : 0,
+                    y: showScrollHint ? 0 : 6,
+                  }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="relative rounded-full p-1.5 bg-white/10 border border-white/10">
+                    <ArrowDownIcon className="w-3.5 h-3.5 text-white/80 animate-bounce" />
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
-            <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
-              <CardHeader
-                title={t('about.hobbies.title')}
-                description={t('about.hobbies.description')}
-                className="px-6 py-6"
-              />
+            <div className="p-6 rounded-3xl bg-white/5 border border-white/10 flex flex-col md:col-span-3 lg:col-span-2 min-h-[320px]">
+              <div className="px-0 pb-4">
+                <div className="flex items-center gap-2 text-xs text-white/80">
+                  <StarIcon className="w-4 h-4 text-emerald-300" />
+                  <span>{t('about.hobbies.title')}</span>
+                </div>
+                <p className="mt-1 text-white/60 text-sm">
+                  {t('about.hobbies.description')}
+                </p>
+              </div>
               <div
                 className="relative flex-1"
                 ref={constraintRef}
               >
                 {hobbies.map((hobby) => (
-                  <motion.div
-                    key={hobby.title}
-                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
-                    style={{
-                      left: hobby.left,
-                      top: hobby.top,
-                    }}
-                    drag
-                    dragConstraints={constraintRef}
-                  >
-                    <span className="text-gray-950 font-medium">
-                      {hobby.title}
-                    </span>
-                    <span>{hobby.emoji}</span>
-                  </motion.div>
+                  <FloatingBadge
+                    key={hobby.titleEn}
+                    label={
+                      locale === 'uk'
+                        ? hobby.titleUk
+                        : hobby.titleEn
+                    }
+                    emoji={hobby.emoji}
+                    leftPercent={parseFloat(hobby.left)}
+                    topPercent={parseFloat(hobby.top)}
+                  />
                 ))}
               </div>
-            </Card>
-            <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
+            </div>
+            <div className="p-0 relative md:col-span-2 lg:col-span-1 rounded-3xl overflow-hidden bg-white/5 border border-white/10">
               <Image
                 src={mapImage}
                 alt="Map"
@@ -180,7 +387,7 @@ export const AboutSection = () => {
                   className="size-20"
                 />
               </div>
-            </Card>
+            </div>
           </div>
         </div>
       </div>

@@ -14,11 +14,16 @@
     "description": "Learn more about who I am, what I do, and what inspires me.",
     "achievements": {
       "title": "My Achievements",
-      "description": "Professional certificates and education"
+      "description": "Professional certificates and education",
+      "courseCertificates": "Course certificates"
     },
     "toolbox": {
       "title": "My Toolbox",
       "description": "Technologies and tools I use to craft exceptional digital experiences"
+    },
+    "education": {
+      "title": "Education",
+      "description": "Key institutions"
     },
     "hobbies": {
       "title": "Beyond the Code",
