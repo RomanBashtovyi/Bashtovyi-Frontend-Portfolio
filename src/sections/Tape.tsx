@@ -2,17 +2,26 @@ import StarIcon from '@/assets/icons/star.svg'
 import { Fragment } from 'react'
 
 const words = [
-  'Performant',
-  'Accessible',
-  'Secure',
-  'Interactive',
-  'Scalable',
-  'User Friendly',
-  'Responsive',
-  'Maintainable',
-  'Search Optimized',
-  'Usable',
-  'Reliable',
+  'React',
+  'TypeScript',
+  'Redux Toolkit',
+  'Ant Design',
+  'Auth0',
+  'Next.js',
+  'Prisma',
+  'Tailwind CSS',
+  'Context API',
+  'JavaScript ES6+',
+  'HTML5',
+  'CSS3/SCSS',
+  'Webpack',
+  'Figma',
+  'Jest',
+  'Axios',
+  'Swiper',
+  'AOS',
+  'Bootstrap',
+  'jQuery',
 ]
 
 export const TapeSection = () => {

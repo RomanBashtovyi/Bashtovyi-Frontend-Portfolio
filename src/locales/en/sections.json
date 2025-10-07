@@ -28,7 +28,12 @@
   "projects": {
     "title": "Featured Projects",
     "eyebrow": "Real-world Results",
-    "description": "See how I transformed concepts into engaging digital experiences."
+    "description": "See how I transformed concepts into engaging digital experiences.",
+    "techStack": "Tech Stack",
+    "keyFeatures": "Key Features",
+    "visitSite": "Visit Live Site",
+    "visitSiteShort": "Site",
+    "github": "GitHub"
   },
   "skills": {
     "title": "My Skills",

@@ -126,7 +126,8 @@ export const ExperienceSection = () => {
                   <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-emerald-300/50 to-transparent"></div>
                   {/* Circle marker */}
                   <div className="relative z-10 w-4 h-4 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full flex items-center justify-center left-1/2 -translate-x-1/2">
-                    <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 animate-ping [animation-duration:2s]"></div>
+                    <div className="relative w-2 h-2 bg-gray-900 rounded-full"></div>
                   </div>
                 </div>
 
@@ -162,11 +163,12 @@ export const ExperienceSection = () => {
                       {[...Array(5)].map((_, starIndex) => (
                         <StarIcon
                           key={starIndex}
-                          className={`w-4 h-4 ${
-                            starIndex < 3
-                              ? 'text-emerald-300'
-                              : 'text-white/20'
-                          }`}
+                          className="w-4 h-4 text-emerald-300 star-animate"
+                          style={{
+                            animationDelay: `${
+                              starIndex * 0.8
+                            }s`,
+                          }}
                         />
                       ))}
                     </div>
