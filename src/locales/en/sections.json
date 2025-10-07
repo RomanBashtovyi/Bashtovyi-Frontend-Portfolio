@@ -6,12 +6,14 @@
     "description": "Creating modern and interactive web applications using React, TypeScript and Next.js",
     "available": "Available for new projects",
     "cta": "View Projects",
-    "connect": "Let's Connect"
+    "connect": "Let's Connect",
+    "experience": "3+ years of commercial experience",
+    "summary": "React, Next.js, TypeScript, performance and quality"
   },
   "about": {
     "title": "A Glimpse Into My World",
     "eyebrow": "About Me",
-    "description": "Learn more about who I am, what I do, and what inspires me.",
+    "description": "A quick intro about me and my work.",
     "achievements": {
       "title": "My Achievements",
       "description": "Professional certificates and education",
@@ -27,13 +29,13 @@
     },
     "hobbies": {
       "title": "Beyond the Code",
-      "description": "Explore my interests and hobbies beyond the digital realm"
+      "description": "What I enjoy outside of work"
     }
   },
   "projects": {
     "title": "Featured Projects",
     "eyebrow": "Real-world Results",
-    "description": "See how I transformed concepts into engaging digital experiences.",
+    "description": "A selection of my projects and solutions.",
     "techStack": "Tech Stack",
     "keyFeatures": "Key Features",
     "visitSite": "Visit Live Site",
@@ -48,11 +50,18 @@
   "experience": {
     "title": "Professional Journey",
     "eyebrow": "Work Experience",
-    "description": "My career path and the projects that shaped my expertise as a frontend developer."
+    "description": "My work experience and key responsibilities."
   },
   "contact": {
     "title": "Let's Collaborate",
     "eyebrow": "Contact",
-    "description": "Ready to discuss your project or collaboration opportunities."
+    "description": "Ready to discuss your project or collaboration opportunities.",
+    "badge": "Let's talk",
+    "ctaTitle": "Message me — I'll reply quickly",
+    "ctaSubtitle": "Telegram preferred. Email if that's easier.",
+    "telegram": "Telegram",
+    "email": "Email",
+    "phone": "Phone",
+    "emailCopied": "Email Copied!"
   }
 }

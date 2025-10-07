@@ -22,8 +22,8 @@ const portfolioProjects = [
     year: '2025',
     type: 'Pet Project',
     description: {
-      en: 'A modern fitness tracking web application designed for athletes to plan workouts, log results, and analyze progress through detailed charts and statistics. Built with performance and user experience in mind.',
-      uk: 'Сучасний веб-додаток для відстеження тренувань, який дозволяє спортсменам планувати тренування, фіксувати результати та аналізувати прогрес через детальні графіки та статистику.',
+      en: 'A modern fitness tracker I built for myself and friends. We use it to plan workouts, log results, and analyze progress with detailed charts and stats. Focused on speed and simple UX.',
+      uk: 'Сучасний трекер тренувань, який я зробив для себе та друзів. Ми користуємося ним для планування, фіксації результатів і аналізу прогресу через детальні графіки та статистику. Акцент на швидкодії та простому UX.',
     },
     techStack: [
       { name: 'React', icon: ReactIconSvg },

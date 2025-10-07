@@ -8,13 +8,15 @@ import { HeroOrbit } from '@/components/HeroOrbit'
 import StarIcon from '@/assets/icons/star.svg'
 import SparkleIcon from '@/assets/icons/sparkle.svg'
 import { useLanguage } from '@/contexts/LanguageContext'
+import GithubIcon from '@/assets/icons/github.svg'
+import TelegramIcon from '@/assets/icons/telegram.svg'
 
 export const HeroSection = () => {
   const { t } = useLanguage()
   return (
     <section
       id="hero"
-      className="py-32 md:py-48 lg:py-60 relative z-0 overflow-x-clip"
+      className="pt-20 pb-32 md:pt-24 md:pb-48 lg:pt-28 lg:pb-60 relative z-0 overflow-x-clip"
     >
       <div
         className="absolute inset-0 -z-10"
@@ -226,7 +228,7 @@ export const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-lg mx-auto">
+        <div className="max-w-2xl mx-auto">
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
             {t('hero.greeting')}{' '}
             <span className="text-white">
@@ -236,20 +238,88 @@ export const HeroSection = () => {
           <p className="mt-4 text-center text-white/60 md:text-lg">
             {t('hero.description')}
           </p>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <a href="#projects" className="btn-secondary">
-            <span className="font-semibold">
-              {t('hero.cta')}
-            </span>
-            <ArrowDown className="size-4" />
-          </a>
-          <a href="#contact" className="btn-primary">
-            <span>👋</span>
-            <span className="font-semibold">
-              {t('hero.connect')}
-            </span>
-          </a>
+          <div className=" flex flex-col items-center gap-3">
+            <div className=" flex flex-col md:flex-row justify-center items-center mt-4 gap-4">
+              <a href="#projects" className="btn-secondary">
+                <span className="font-semibold">
+                  {t('hero.cta')}
+                </span>
+                <ArrowDown className="size-4" />
+              </a>
+              <a href="#contact" className="btn-primary">
+                <span>👋</span>
+                <span className="font-semibold">
+                  {t('hero.connect')}
+                </span>
+              </a>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-3">
+              <a
+                href="https://t.me/romanuss"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                <div className="p-1 rounded-md bg-gradient-to-br from-emerald-300 to-sky-400 text-gray-900">
+                  <TelegramIcon className="size-4 text-gray-900" />
+                </div>
+                <span className="font-semibold text-sm">
+                  Telegram
+                </span>
+              </a>
+              <a
+                href="https://github.com/RomanBashtovyi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                <div className="p-1 rounded-md bg-gradient-to-br from-emerald-300 to-sky-400 text-gray-900">
+                  <GithubIcon className="size-4 text-gray-900" />
+                </div>
+                <span className="font-semibold text-sm">
+                  GitHub
+                </span>
+              </a>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+              <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm">
+                {t('hero.experience')}
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm">
+              {[
+                'React',
+                'Next.js',
+                'TypeScript',
+                'Redux Toolkit',
+                'JavaScript',
+                'HTML5',
+                'CSS3',
+                'Bootstrap',
+                'jQuery',
+                'AOS',
+                'Swiper',
+                'Figma',
+                'Webpack',
+                'GitHub',
+                'Ant Design',
+                'Tailwind CSS',
+                'shadcn/ui',
+                'Auth0',
+                'Prisma',
+                'Axios',
+                'Recharts',
+                'Jest',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 transition-all duration-200 will-change-transform hover:bg-white/10 hover:border-white/20 hover:text-white hover:-translate-y-0.5"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

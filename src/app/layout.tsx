@@ -15,9 +15,9 @@ const calistoga = Calistoga({
 })
 
 export const metadata: Metadata = {
-  title: 'Портфоліо Баштового Романа | Frontend Developer',
+  title: 'Bashtovyi — Frontend Portfolio',
   description:
-    'Сучасне портфоліо фронтенд-розробника Баштового Романа. React, TypeScript, Next.js',
+    'Modern frontend portfolio by Roman Bashtovyi. React, TypeScript, Next.js.',
   icons: {
     icon: '/favicon.ico',
   },

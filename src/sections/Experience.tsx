@@ -108,7 +108,10 @@ export const ExperienceSection = () => {
   const { t, locale } = useLanguage()
 
   return (
-    <section id="experience" className="py-20 lg:py-28">
+    <section
+      id="experience"
+      className="py-20 lg:py-28 pt-0 lg:pt-0"
+    >
       <div className="container">
         <SectionHeader
           title={t('experience.title')}

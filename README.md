@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+
+# Bashtovyi Frontend Portfolio
+
+Personal portfolio and resume website built with Next.js, TypeScript and Tailwind CSS.
+
+</div>
+
+## Features
+
+- Modern, performant Next.js 14 app router setup
+- Responsive layout with Tailwind CSS and custom components
+- Ukrainian and English content via a lightweight i18n layer
+- Accessible, keyboard-friendly navigation
+- Animated hero with decorative orbit elements
+- Projects gallery and lightbox previews
+- Sections: Hero, About, Experience, Projects, Testimonials, Contact, Footer
+
+## Tech Stack
+
+- Next.js 14, React 18, TypeScript
+- Tailwind CSS, PostCSS, Autoprefixer
+- SVG icons via SVGR
+- Framer Motion (animations)
+- yet-another-react-lightbox (project previews)
 
 ## Getting Started
 
-First, run the development server:
+Prerequisites: Node.js 18+ and npm.
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev`: start development server
+- `npm run build`: production build
+- `npm run start`: start production server
+- `npm run lint`: run Next.js ESLint
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```text
+src/
+  app/               # App router, layout and global styles
+  assets/            # SVG icons and images
+  components/        # Reusable UI components
+  contexts/          # Language context
+  lib/               # i18n helpers
+  locales/           # Translations (en, uk)
+  sections/          # Page sections (Hero, Projects, ...)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Component-level styling is done with Tailwind utility classes.
+- Reusable button styles live in `src/app/globals.css` as `.btn`, `.btn-primary`, `.btn-secondary`.
 
-## Deploy on Vercel
+## Internationalization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Simple i18n powered by a language context and JSON dictionaries in `src/locales/en` and `src/locales/uk`.
+- The `LanguageSwitcher` component toggles the current language.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Accessibility
+
+- Semantic markup and focus-visible styles
+- Sufficient color contrast and larger tap targets
+- Keyboard navigable interactive elements
+
+## Deployment
+
+The project can be deployed to any Node-compatible host. Recommended: Vercel.
+
+```bash
+npm run build
+npm run start
+```
+
+## Contributing
+
+Issues and pull requests are welcome. For larger changes, please open an issue to discuss what you would like to change first.
+
+## License
+
+MIT © Roman Bashtovyi
