@@ -99,17 +99,4 @@ The project can be deployed to any Node-compatible host. Recommended: Vercel.
 npm run build
 npm run start
 ```
-
-## Roadmap
-
-- Contact form with server actions
-- Content layer/CMS for projects
-- Theme toggle (light/dark)
-
-## Contributing
-
-Issues and pull requests are welcome. For larger changes, please open an issue to discuss what you would like to change first.
-
-## License
-
-MIT © Roman Bashtovyi
+ 
