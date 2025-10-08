@@ -30,6 +30,10 @@
     "hobbies": {
       "title": "Beyond the Code",
       "description": "What I enjoy outside of work"
+    },
+    "languages": {
+      "title": "Languages",
+      "description": "Languages I speak"
     }
   },
   "projects": {

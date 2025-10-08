@@ -30,6 +30,10 @@
     "hobbies": {
       "title": "Поза кодом",
       "description": "Чим цікавлюся поза роботою"
+    },
+    "languages": {
+      "title": "Мови",
+      "description": "Мови, якими володію"
     }
   },
   "projects": {

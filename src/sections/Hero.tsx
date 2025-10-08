@@ -296,7 +296,6 @@ export const HeroSection = () => {
                 'HTML5',
                 'CSS3',
                 'Bootstrap',
-                'jQuery',
                 'AOS',
                 'Swiper',
                 'Figma',
@@ -304,12 +303,16 @@ export const HeroSection = () => {
                 'GitHub',
                 'Ant Design',
                 'Tailwind CSS',
+                'jQuery',
                 'shadcn/ui',
                 'Auth0',
                 'Prisma',
                 'Axios',
                 'Recharts',
                 'Jest',
+                'Jira',
+                'Confluence',
+                'Cursor',
               ].map((skill) => (
                 <span
                   key={skill}
