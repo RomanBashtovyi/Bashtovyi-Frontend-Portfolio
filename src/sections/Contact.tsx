@@ -39,7 +39,7 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-16 pt-12 lg:py-24 lg:pt-20"
+      className="py-16 pt-8 lg:py-24 lg:pt-12"
     >
       <div className="container">
         <div className="bg-white/5 border border-white/10 text-white rounded-3xl py-10 px-6 md:px-10 text-center md:text-left relative overflow-hidden z-0">

@@ -22,6 +22,8 @@ import {
 } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import DocumentIcon from '@/assets/icons/document.svg'
+import ArrowRightIcon from '@/assets/icons/arrow-up-right.svg'
 
 const toolboxItems = [
   {
@@ -243,7 +245,10 @@ export const AboutSection = () => {
   }
 
   return (
-    <section id="about" className="py-20 lg:py-28">
+    <section
+      id="about"
+      className="py-20 pb-12 lg:py-28 lg:pb-16"
+    >
       <div className="container">
         <SectionHeader
           title={t('about.title')}
@@ -386,6 +391,46 @@ export const AboutSection = () => {
                   alt="Smile Emoji"
                   className="size-20"
                 />
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 p-4 md:p-6 rounded-3xl bg-white/5 border border-white/10">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6 ">
+              <div className="flex items-center gap-3">
+                <div className="size-10 md:size-12 rounded-lg bg-gradient-to-br from-emerald-300 to-sky-400 text-gray-900 flex items-center justify-center flex-shrink-0">
+                  <DocumentIcon className="w-5 h-5 md:w-6 md:h-6" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-white font-semibold text-base md:text-lg">
+                    {t('about.cv.title')}
+                  </h3>
+                  <p className="text-white/60 text-xs md:text-sm truncate">
+                    PDF • Frontend Developer
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-col gap-3 w-full lg:w-auto md:justify-around md:mt-4 sm:mt-4 md:flex-row">
+                <a
+                  href="/CV_Bashtovyi_frontend.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary group w-full sm:w-auto justify-center px-4"
+                >
+                  <span className="text-sm md:text-base">
+                    {t('about.cv.view')}
+                  </span>
+                  <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+                <a
+                  href="/CV_Bashtovyi_frontend.pdf"
+                  download
+                  className="btn-primary group w-full sm:w-auto justify-center px-4"
+                >
+                  <DocumentIcon className="size-4" />
+                  <span className="text-sm md:text-base">
+                    {t('about.cv.download')}
+                  </span>
+                </a>
               </div>
             </div>
           </div>
