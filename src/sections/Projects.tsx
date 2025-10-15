@@ -92,6 +92,52 @@ const portfolioProjects = [
       },
     ],
   },
+  {
+    name: 'Flock Simulation',
+    year: '2025',
+    type: 'Pet Project',
+    description: {
+      en: 'Interactive flocking (boids) simulation with animated koi, built with React Three Fiber and cinematic post-processing. Includes live tweaking via Leva and theme switcher.',
+      uk: 'Інтерактивна симуляція флокінгу (boids) з анімованими коропами, на React Three Fiber з кінематографічними пост-ефектами. Є live-тюнінг через Leva та перемикач тем.',
+    },
+    techStack: [
+      { name: 'React', icon: ReactIconSvg },
+      { name: 'Tailwind CSS', icon: TailwindIcon },
+    ],
+    features: {
+      en: [
+        'Boids rules: alignment, cohesion, avoidance, wander',
+        'React Three Fiber with animated GLTF koi models',
+        'Post-processing: Bloom, Depth of Field, God Rays',
+        'Theme switcher: Underwater and Space',
+        'Live tweaking via Leva control panel',
+      ],
+      uk: [
+        'Правила boids: вирівнювання, згуртування, уникнення, блукання',
+        'React Three Fiber з анімованими GLTF моделями коропів',
+        'Пост-ефекти: Bloom, Depth of Field, God Rays',
+        'Перемикач тем: Underwater та Space',
+        'Live-налаштування через панель Leva',
+      ],
+    },
+    githubLink:
+      'https://github.com/RomanBashtovyi/Flock-Simulation',
+    liveLink: 'https://flock-simulation.vercel.app/',
+    screenshots: [
+      {
+        src: '/screenshots/Flock%20Simulation/underwater.png',
+        alt: 'Flock Simulation Underwater',
+      },
+      {
+        src: '/screenshots/Flock%20Simulation/space.png',
+        alt: 'Flock Simulation Space',
+      },
+      {
+        src: '/screenshots/Flock%20Simulation/phone.png',
+        alt: 'Flock Simulation Mobile',
+      },
+    ],
+  },
 ]
 
 export const ProjectsSection = () => {
